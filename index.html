@@ -205,12 +205,19 @@
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all_nosearch.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66360400-3"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-66360400-3');
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
-        NAV
         <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
@@ -324,12 +331,12 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href="https://github.com/wc-marketplace/wc-marketplace.github.io">Contribute to WCMp REST API Docs</a></li>
-            <li><a href="https://wc-marketplace.com/knowledgebase/wcmp-hooks-filters/">WCMp Hooks and Filters</a></li>
-            <li><a href="https://wc-marketplace.com/knowledgebase/wcmp-setup-guide/">WCMp Product Documentation</a></li>
-            <li><a href="https://wc-marketplace.com/support-forum/forum/wcmp-core/">Connect to WCMp Support</a></li>
-            <li><a href="https://wc-marketplace.com/support-forum/forum/future-ideas/">Contribute to WCMp Ideas</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a target="_blank" href="https://github.com/wc-marketplace/wc-marketplace.github.io">Contribute to WCMp REST API Docs</a></li>
+            <li><a target="_blank" href="https://wc-marketplace.com/knowledgebase/wcmp-hooks-filters/">WCMp Hooks and Filters</a></li>
+            <li><a target="_blank" href="https://wc-marketplace.com/knowledgebase/wcmp-setup-guide/">WCMp Product Documentation</a></li>
+            <li><a target="_blank" href="https://wc-marketplace.com/support-forum/forum/wcmp-core/">Connect to WCMp Support</a></li>
+            <li><a target="_blank" href="https://wc-marketplace.com/support-forum/forum/future-ideas/">Contribute to WCMp Ideas</a></li>
+            <li><a target="_blank" href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -338,7 +345,7 @@
         <h1 id='introduction'>Introduction</h1>
 <p>WC Marketplace 3.1+ have been fully integrated with WordPress REST API. This will now let developers interact with sites remotely by sending and receiving JSON objects. When a data is sent out or a HTTP(S) request is made to the API from external applications, the response will be returned in JSON, thereby allowing WCMp data to be created, read, updated or deleted.</p>
 
-<p>WCMp REST API has been introduced extending <a href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a>.</p>
+<p>WCMp REST API has been introduced extending <a target="_blank" href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a>.</p>
 <h2 id='prerequisites'>Prerequisites</h2>
 <aside class="notice">
   <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest WCMp REST API feature.
@@ -355,12 +362,12 @@
 </ul>
 
 <aside class="notice">
-  <strong>Note:</strong> Before you proceed, go through <a href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding.
+  <strong>Note:</strong> Before you proceed, go through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding of WCMp and WooCommerce REST API.
 </aside>
 <h2 id='jsonp'>JSONP</h2>
 <p>JSONP is a method for sending JSON data without worrying about cross-domain issues. The JSON data is wrapped up in a callback function as a parameter inside it, but obviously keeping in mind the function exists on the client.</p>
 
-<p>WP REST API supports JSONP by default about which you may read it <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.</p>
+<p>WP REST API supports JSONP by default about which you may read it <a target="_blank" href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.</p>
 
 <p>A syntactical representation of a JSONP request is provided below:
 <div class="wcmp-api-endpoint">
@@ -377,7 +384,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">/**/vendorDetails(</span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="s2">"login"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Alex"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Sarnal"</span><span class="p">,</span><span class="s2">"nice_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="s2">"display_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"alex@example.com"</span><span class="p">,</span><span class="s2">"url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"registered"</span><span class="p">:</span><span class="s2">"2018-05-31 13:29:05"</span><span class="p">,</span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="s2">"roles"</span><span class="p">:[</span><span class="s2">"dc_vendor"</span><span class="p">],</span><span class="s2">"allcaps"</span><span class="p">:{</span><span class="s2">"read"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"manage_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_posts"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_posts"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"view_woocommerce_reports"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"assign_product_terms"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"upload_files"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"read_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"read_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"publish_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"publish_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"edit_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"delete_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"vendor_import_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"vendor_export_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"dc_vendor"</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="s2">"timezone_string"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"gmt_offset"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"shop"</span><span class="p">:{</span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">vendor</span><span class="se">\/</span><span class="s2">alex</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="s2">"slug"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="s2">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"image"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"banner"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="s2">"address"</span><span class="p">:{</span><span class="s2">"address_1"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"address_2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"postcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"phone"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="s2">"social"</span><span class="p">:{</span><span class="s2">"facebook"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"twitter"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"google_plus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"linkdin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"youtube"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"instagram"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="s2">"payment"</span><span class="p">:{</span><span class="s2">"payment_mode"</span><span class="p">:</span><span class="s2">"mangopay_gateway"</span><span class="p">,</span><span class="s2">"bank_account_type"</span><span class="p">:</span><span class="s2">"current"</span><span class="p">,</span><span class="s2">"bank_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"bank_account_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"bank_address"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"account_holder_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"aba_routing_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"destination_currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"iban"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"paypal_email"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="s2">"message_to_buyers"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"review"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s2">"_links"</span><span class="p">:{</span><span class="s2">"self"</span><span class="p">:[{</span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors</span><span class="se">\/</span><span class="s2">14"</span><span class="p">}],</span><span class="s2">"collection"</span><span class="p">:[{</span><span class="s2">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors"</span><span class="p">}]}}</span><span class="err">)</span><span class="w">
 </span></code></pre><h2 id='starting-out'>Starting Out</h2>
-<p>Generate API credentials (Consumer Key &amp; Consumer Secret) following instructions listed in <a href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the WP REST API.</p>
+<p>Generate API credentials (Consumer Key &amp; Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the WP REST API.</p>
 
 <p>We do not create a different credential set, rather we use WooCommerce&#39;s API credentials thereby you need to authenticate only once.</p>
 <h2 id='http-methods'>HTTP Methods</h2>
@@ -2043,7 +2050,7 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h1 id='products'>Products</h1>
-<p>WCMp Products API allows you to get all the products of a vendor or insert a vendor&#39;s product and even update a product with a vendor assigned to it <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#products">(extends WooCommerce Products API)</a>.</p>
+<p>WCMp Products API allows you to get all the products of a vendor or insert a vendor&#39;s product and even update a product with a vendor assigned to it <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#products">(extends WooCommerce Products API)</a>.</p>
 <h2 id='list-all-products-by-vendor'>List all products by vendor</h2>
 <p>To retrieve all the products by a vendor, make a HTTP GET request to WooCommerce&#39;s Product API with a <code>vendor</code> parameter passed to it.</p>
 <h3 id='accepted-parameters'>Accepted Parameters</h3>
@@ -2520,7 +2527,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='orders'>Orders</h1>
-<p>WCMp Orders API allows you to list all the orders of a vendor <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. </p>
+<p>WCMp Orders API allows you to list all the orders of a vendor <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. </p>
 <h2 id='list-all-orders-by-vendor'>List all orders by vendor</h2>
 <p>To retrieve all the orders by a vendor, make a HTTP GET request to WooCommerce&#39;s Orders API with a <code>vendor</code> parameter passed to it.</p>
 <h3 id='accepted-parameters'>Accepted Parameters</h3>
@@ -2908,7 +2915,7 @@
 <pre class="highlight plaintext"><code>Response data received is same as above except for the fact, only the specific order is retrieved.
 
 </code></pre><h1 id='coupons'>Coupons</h1>
-<p>WCMp Coupons API allows you to get all the coupons of a vendor or insert a vendor&#39;s coupon and even update a coupon with a vendor assigned to it <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#coupons">(extends WooCommerce Coupons API)</a>.</p>
+<p>WCMp Coupons API allows you to get all the coupons of a vendor or insert a vendor&#39;s coupon and even update a coupon with a vendor assigned to it <a target="_blank" href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#coupons">(extends WooCommerce Coupons API)</a>.</p>
 <h2 id='list-all-coupons-by-vendor'>List all coupons by vendor</h2>
 <p>To retrieve all the coupons by a vendor, make a HTTP GET request to WooCommerce&#39;s Coupon API with a <code>vendor</code> parameter passed to it.</p>
 <h3 id='accepted-parameters'>Accepted Parameters</h3>
