@@ -1,5 +1,5 @@
 ---
-title: WC Marketplace REST API Docs
+title: MultiVendorX REST API Docs
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell: cURL
