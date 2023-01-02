@@ -9,7 +9,7 @@ MultiVendorX REST API has been introduced extending <a target="_blank" href="htt
 <aside class="notice">
   <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest WCMp REST API feature.
 </aside>
-To use __WCMp REST API__ make sure you are using:
+To use __MultiVendorX REST API__ make sure you are using:
 
 * WC Marketplace 3.1+.
 * WooCommerce 3.0+.
@@ -25,7 +25,7 @@ To use __WCMp REST API__ make sure you are using:
 
 JSONP is a method for sending JSON data without worrying about cross-domain issues. The JSON data is wrapped up in a callback function as a parameter inside it, but obviously keeping in mind the function exists on the client.
 
-WP REST API supports JSONP by default about which you may read it <a target="_blank" href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.
+MultiVendorX REST API supports JSONP by default about which you may read it <a target="_blank" href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.
 
 A syntactical representation of a JSONP request is provided below:
 <div class="wcmp-api-endpoint">
@@ -255,7 +255,7 @@ curl https://example.com/wp-json/wcmp/v1/
 
 ## Pagination ##
 
-WP REST API supports pagination therefore you can also paginate results returned by WCMp REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the `?per_page` parameter. The syntax for the same would be:
+MultiVendorX REST API supports pagination therefore you can also paginate results returned by WCMp REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the `?per_page` parameter. The syntax for the same would be:
 
 `GET /vendors?per_page=15`
 
@@ -279,7 +279,7 @@ Some rare times you might encounter errors when accessing the REST API. There ar
 | `404 Not Found`               | Requests to resources that don't exist or are missing         |
 | `500 Internal Server Error`   | Server error                                                  |
 
-> WCMp REST API 401 error example:
+> MultiVendorX REST API 401 error example:
 
 ```json
 {
@@ -291,7 +291,7 @@ Some rare times you might encounter errors when accessing the REST API. There ar
 }
 ```
 
-> WCMp REST API 404 error example:
+> MultiVendorX REST API 404 error example:
 
 ```json
 {
