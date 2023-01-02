@@ -336,7 +336,32 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-coupons-by-vendor" class="toc-h2 toc-link" data-title="List all coupons by vendor">List all coupons by vendor</a>
+                  </li>
+                  <li>
+                    <a href="#list-a-specific-coupon-by-a-vendor" class="toc-h2 toc-link" data-title="List a specific coupon by a vendor">List a specific coupon by a vendor</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-vendor-39-s-coupon" class="toc-h2 toc-link" data-title="Create a vendor's coupon">Create a vendor's coupon</a>
+                  </li>
+                  <li>
+                    <a href="#assign-a-new-vendor-to-a-coupon" class="toc-h2 toc-link" data-title="Assign a new vendor to a coupon">Assign a new vendor to a coupon</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-orders-by-vendor" class="toc-h2 toc-link" data-title="List all orders by vendor">List all orders by vendor</a>
+                  </li>
+                  <li>
+                    <a href="#list-a-specific-order-by-a-vendor" class="toc-h2 toc-link" data-title="List a specific order by a vendor">List a specific order by a vendor</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -526,65 +551,629 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The MultiVendorX API uses the following error codes:</p>
-
+<h1 id='coupons'>Coupons</h1>
+<p>MultiVendorX Coupons API allows you to get all the coupons of a vendor or insert a vendor&#39;s coupon and even update a coupon with a vendor assigned to it <a target="_blank" href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#coupons">(extends WooCommerce Coupons API)</a>.</p>
+<h2 id='list-all-coupons-by-vendor'>List all coupons by vendor</h2>
+<p>To retrieve all the coupons by a vendor, make a HTTP GET request to WooCommerce&#39;s Coupon API with a <code>vendor</code> parameter passed to it.</p>
+<h3 id='accepted-parameters'>Accepted Parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Attribute</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td><code>vendor</code></td>
+<td>Vendor ID of the vendor whose coupons are to be listed.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td><code>include_vendor</code></td>
+<td>Array of vendor IDs whose coupons are to be listed.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td><code>exclude_vendor</code></td>
+<td>Array of vendor IDs whose coupons are to be excluded from the list.</td>
 </tr>
 </tbody></table>
+<h3 id='http-request'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wc/v2/coupons/?vendor=[vendor_id]</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wc/v2/coupons/?vendor<span class="o">=</span>13 <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret
+</code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">490</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50off"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed_product"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Curabitur molestie posuere purus, eget venenatis quam ornare quis. Aenean pharetra magna quam, ac efficitur sapien ornare sed. Sed in lobortis nisi. "</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_expires_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"usage_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"individual_use"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"excluded_product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"usage_limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"usage_limit_per_user"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"limit_usage_to_x_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"free_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"excluded_product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"exclude_sale_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"minimum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maximum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email_restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"used_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons/490"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">489</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp coupon"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed_product"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Curabitur molestie posuere purus, eget venenatis quam ornare quis. Aenean pharetra magna quam, ac efficitur sapien ornare sed. Sed in lobortis nisi. "</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-13T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_expires_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-13T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"usage_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"individual_use"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"excluded_product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"usage_limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"usage_limit_per_user"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"limit_usage_to_x_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"free_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"excluded_product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"exclude_sale_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"minimum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"maximum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email_restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"used_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons/489"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='list-a-specific-coupon-by-a-vendor'>List a specific coupon by a vendor</h2>
+<p>Using this you can list a single coupon of a specific vendor.</p>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wc/v2/coupons/[coupon_id]?vendor=[vendor_id]</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/wc/v2/coupons/485/?vendor<span class="o">=</span>13 <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret
+</code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight html tab-html"><code>Response data received is same as above except for the fact, only the specific coupon is retrieved.
 
+</code></pre></div><h2 id='create-a-vendor-39-s-coupon'>Create a vendor&#39;s coupon</h2>
+<p>Using this you can add a coupon to a vendor.</p>
+<h3 id='http-request-3'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/wc/v2/coupons/</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wc/v2/coupons <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{
+  "code": "50off",
+  "discount_type": "fixed_product",
+  "amount": "50",
+  "individual_use": true,
+  "exclude_sale_items": true,
+  "minimum_amount": "500.00",
+  "vendor": 13
+}'</span>
+</code></pre></div><h3 id='debugging'>Debugging</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Debugging</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code> <code>woocommerce_rest_shop_coupon_invalid_vendor_id</code></td>
+<td>Provided <code>id</code> does not belong to a registered vendor. Enter a valid vendor ID.</td>
+</tr>
+</tbody></table>
+<h2 id='assign-a-new-vendor-to-a-coupon'>Assign a new vendor to a coupon</h2>
+<p>Update your existing coupon with a new vendor or assign a vendor to an existing vendor-less coupon.</p>
+<h3 id='http-request-4'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/wc/v2/coupons/[coupon_id]/</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wc/v2/coupons/490 <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    <span class="nt">-d</span> <span class="s1">'{
+  "vendor": 14
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">490</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50off"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:20:39"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed_product"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Curabitur molestie posuere purus, eget venenatis quam ornare quis. Aenean pharetra magna quam, ac efficitur sapien ornare sed. Sed in lobortis nisi. "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_expires_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usage_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"individual_use"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"excluded_product_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"usage_limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"usage_limit_per_user"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"limit_usage_to_x_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"free_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"excluded_product_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"exclude_sale_items"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"minimum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"maximum_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email_restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"used_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons/490"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/coupons"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='orders'>Orders</h1>
+<p>MultiVendorX Orders API allows you to list all the orders of a vendor <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. </p>
+<h2 id='list-all-orders-by-vendor'>List all orders by vendor</h2>
+<p>To retrieve all the orders by a vendor, make a HTTP GET request to WooCommerce&#39;s Orders API with a <code>vendor</code> parameter passed to it.</p>
+<h3 id='accepted-parameters'>Accepted Parameters</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>vendor</code></td>
+<td>Vendor ID of the vendor whose orders are to be listed.</td>
+</tr>
+<tr>
+<td><code>include_vendor</code></td>
+<td>Array of vendor IDs whose orders are to be listed.</td>
+</tr>
+<tr>
+<td><code>exclude_vendor</code></td>
+<td>Array of vendor IDs whose orders are to be excluded from the list.</td>
+</tr>
+</tbody></table>
+<h3 id='http-request'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/wc/v2/orders?vendor<span class="o">=</span>13 <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret
+</code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">480</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"480"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wc_order_5b32210b5888a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_via"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkout"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.4.2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-26T11:18:35"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-26T11:18:35"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-26T11:18:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-26T11:18:39"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shipping_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prices_include_tax"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"::1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_user_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mozilla/5.0 (x11; linux x86_64) applewebkit/537.36 (khtml, like gecko) ubuntu chromium/62.0.3202.75 chrome/62.0.3202.75 safari/537.36"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1, Happy Street"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York City"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@hm.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9876543210"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1, Happy Street"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New York City"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash on delivery"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_paid_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_completed_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d16e86a2720e474fde669e38611608a3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11251</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_order_processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11261</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_commission_ids"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="mi">481</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11262</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_commissions_processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro 1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tax_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90.91"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90.91"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.090909"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.090909"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">857</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sold By"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debleena5"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">858</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_vendor_id"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pro-001"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.909091</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tax_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rate_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAX-1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rate_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tax"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"compound"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"shipping_tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"shipping_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flat rate"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">864</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Items"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro 1 &amp;times; 1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">865</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendor_id"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">866</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"package_qty"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"fee_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"coupon_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"refunds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/orders/480"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/orders"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/customers/18"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">464</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"464"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wc_order_5b2232bfaf898"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created_via"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkout"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.4.2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"on-hold"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-14T09:17:51"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-14T09:17:51"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-14T09:17:55"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-14T09:17:55"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"shipping_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"prices_include_tax"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_ip_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_user_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mozilla/5.0 (x11; ubuntu; linux x86_64; rv:56.0) gecko/20100101 firefox/56.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_note"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thatcham Business Village, Colthrop Way"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thatcham"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"England"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RG19 4LW"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@fm.cm"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654670"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC Text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thatcham Business Village, Colthrop Way"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thatcham"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"England"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RG19 4LW"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct bank transfer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_paid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_paid_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"date_completed_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d16e86a2720e474fde669e38611608a3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10938</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_order_processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro 1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">418</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tax_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90.91"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90.91"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.090909"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.090909"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sold By"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debleena5"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_vendor_id"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pro-001"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">90.909091</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"tax_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rate_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TAX-1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rate_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tax"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"compound"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.09"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"shipping_tax_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"shipping_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free shipping"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_shipping"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">706</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Items"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pro 1 &amp;times; 1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">707</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendor_id"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">708</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"package_qty"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"fee_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"coupon_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"refunds"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/orders/464"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/orders"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wc/v2/customers/5"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h2 id='list-a-specific-order-by-a-vendor'>List a specific order by a vendor</h2>
+<p>Using this you can list a single order of a specific vendor.</p>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="wcmp-api-endpoint">
+  <div class="wcmp-endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/wc/v2/orders/[order_id]?vendor=[vendor_id]</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wc/v2/orders/485/?vendor<span class="o">=</span>13 <span class="se">\</span>
+    <span class="nt">-u</span> consumer_key:consumer_secret
+</code></pre></div>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Response data received is same as above except for the fact, only the specific order is retrieved.
+
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
