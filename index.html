@@ -6,8 +6,14 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>MultiVendorX REST API Docs</title>
+    <link rel="icon" href="images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="images/favicon-310x310.png" />
 
-    <style media="screen">
+    <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
@@ -146,36 +152,47 @@
 }
 .highlight .vc {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nn {
   color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .ni {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .bp {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vg {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .vi {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .nv, .highlight .vm {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .w {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight {
   color: #ffffff;
+  background-color: #272822;
 }
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
-}
-.highlight .nl {
-  color: #f92672;
+  background-color: #272822;
 }
 .highlight .ow {
   color: #f92672;
@@ -196,232 +213,154 @@
   color: #f92672;
 }
     </style>
-    <style media="print">
-      * {
-        -webkit-transition:none!important;
-        transition:none!important;
-      }
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #586e75;
-}
-.highlight .err {
-  color: #002b36;
-  background-color: #dc322f;
-}
-.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
-  color: #657b83;
-}
-.highlight .cp {
-  color: #b58900;
-}
-.highlight .nt {
-  color: #b58900;
-}
-.highlight .o, .highlight .ow {
-  color: #93a1a1;
-}
-.highlight .p, .highlight .pi {
-  color: #93a1a1;
-}
-.highlight .gi {
-  color: #859900;
-}
-.highlight .gd {
-  color: #dc322f;
-}
-.highlight .gh {
-  color: #268bd2;
-  background-color: #002b36;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #6c71c4;
-}
-.highlight .kc {
-  color: #cb4b16;
-}
-.highlight .kt {
-  color: #cb4b16;
-}
-.highlight .kd {
-  color: #cb4b16;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #859900;
-}
-.highlight .sa {
-  color: #6c71c4;
-}
-.highlight .sr {
-  color: #2aa198;
-}
-.highlight .si {
-  color: #d33682;
-}
-.highlight .se {
-  color: #d33682;
-}
-.highlight .nn {
-  color: #b58900;
-}
-.highlight .nc {
-  color: #b58900;
-}
-.highlight .no {
-  color: #b58900;
-}
-.highlight .na {
-  color: #268bd2;
-}
-.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
-  color: #859900;
-}
-.highlight .ss {
-  color: #859900;
-}
-    </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-26476024.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all_nosearch-18c3ed8e.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66360400-3"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
 
+     gtag('config', 'UA-66360400-3');
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
-        NAV
         <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-12c0b679.png" class="logo" alt="" />
+      <a href="#" class="logo-wrapper">
+        <img src="images/logo-12c0b679.png" class="logo" alt="" />
+      </a>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
         </div>
-      <ul id="toc" class="toc-list-h1">
+      <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#prerequisites" class="toc-h2 toc-link" data-title="Prerequisites">Prerequisites</a>
+                    <a href="#prerequisites" class="toc-h2 toc-link" data-title="prerequisites">Prerequisites</a>
                   </li>
                   <li>
-                    <a href="#jsonp" class="toc-h2 toc-link" data-title="JSONP">JSONP</a>
+                    <a href="#jsonp" class="toc-h2 toc-link" data-title="jsonp">JSONP</a>
                   </li>
                   <li>
-                    <a href="#starting-out" class="toc-h2 toc-link" data-title="Starting Out">Starting Out</a>
+                    <a href="#starting-out" class="toc-h2 toc-link" data-title="starting-out">Starting Out</a>
                   </li>
                   <li>
-                    <a href="#http-methods" class="toc-h2 toc-link" data-title="HTTP Methods">HTTP Methods</a>
+                    <a href="#http-methods" class="toc-h2 toc-link" data-title="http-methods">HTTP Methods</a>
                   </li>
                   <li>
-                    <a href="#sending-a-http-request" class="toc-h2 toc-link" data-title="Sending a HTTP Request">Sending a HTTP Request</a>
+                    <a href="#sending-a-http-request" class="toc-h2 toc-link" data-title="sending-a-http-request">Sending a HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#pagination" class="toc-h2 toc-link" data-title="Pagination">Pagination</a>
+                    <a href="#pagination" class="toc-h2 toc-link" data-title="pagination">Pagination</a>
                   </li>
                   <li>
-                    <a href="#generic-errors" class="toc-h2 toc-link" data-title="Generic Errors">Generic Errors</a>
+                    <a href="#generic-errors" class="toc-h2 toc-link" data-title="generic-errors">Generic Errors</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#vendors" class="toc-h1 toc-link" data-title="Vendors">Vendors</a>
+            <a href="#vendors" class="toc-h1 toc-link" data-title="vendors">Vendors</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#accepted-parameters" class="toc-h2 toc-link" data-title="Accepted Parameters">Accepted Parameters</a>
+                    <a href="#accepted-parameters" class="toc-h2 toc-link" data-title="accepted-parameters">Accepted Parameters</a>
                   </li>
                   <li>
-                    <a href="#create-a-vendor" class="toc-h2 toc-link" data-title="Create a Vendor">Create a Vendor</a>
+                    <a href="#create-a-vendor" class="toc-h2 toc-link" data-title="create-a-vendor">Create a Vendor</a>
                   </li>
                   <li>
-                    <a href="#get-all-vendors" class="toc-h2 toc-link" data-title="Get all Vendors">Get all Vendors</a>
+                    <a href="#get-all-vendors" class="toc-h2 toc-link" data-title="get-all-vendors">Get all Vendors</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-specific-vendor" class="toc-h2 toc-link" data-title="Retrieve a Specific Vendor">Retrieve a Specific Vendor</a>
+                    <a href="#retrieve-a-specific-vendor" class="toc-h2 toc-link" data-title="retrieve-a-specific-vendor">Retrieve a Specific Vendor</a>
                   </li>
                   <li>
-                    <a href="#update-a-vendor" class="toc-h2 toc-link" data-title="Update a Vendor">Update a Vendor</a>
+                    <a href="#update-a-vendor" class="toc-h2 toc-link" data-title="update-a-vendor">Update a Vendor</a>
                   </li>
                   <li>
-                    <a href="#delete-a-vendor" class="toc-h2 toc-link" data-title="Delete a Vendor">Delete a Vendor</a>
+                    <a href="#delete-a-vendor" class="toc-h2 toc-link" data-title="delete-a-vendor">Delete a Vendor</a>
                   </li>
                   <li>
-                    <a href="#batch-update-vendors" class="toc-h2 toc-link" data-title="Batch update Vendors">Batch update Vendors</a>
+                    <a href="#batch-update-vendors" class="toc-h2 toc-link" data-title="batch-update-vendors">Batch update Vendors</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+            <a href="#products" class="toc-h1 toc-link" data-title="products">Products</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#list-all-products-by-vendor" class="toc-h2 toc-link" data-title="List all products by vendor">List all products by vendor</a>
+                    <a href="#list-all-products-by-vendor" class="toc-h2 toc-link" data-title="list-all-products-by-vendor">List all products by vendor</a>
                   </li>
                   <li>
-                    <a href="#list-a-specific-product-by-a-vendor" class="toc-h2 toc-link" data-title="List a specific product by a vendor">List a specific product by a vendor</a>
+                    <a href="#list-a-specific-product-by-a-vendor" class="toc-h2 toc-link" data-title="list-a-specific-product-by-a-vendor">List a specific product by a vendor</a>
                   </li>
                   <li>
-                    <a href="#create-a-vendor-39-s-product" class="toc-h2 toc-link" data-title="Create a vendor's product">Create a vendor's product</a>
+                    <a href="#create-a-vendor-39-s-product" class="toc-h2 toc-link" data-title="create-a-vendor-s-product">Create a vendor's product</a>
                   </li>
                   <li>
-                    <a href="#assign-a-new-vendor-to-a-product" class="toc-h2 toc-link" data-title="Assign a new vendor to a product">Assign a new vendor to a product</a>
+                    <a href="#assign-a-new-vendor-to-a-product" class="toc-h2 toc-link" data-title="assign-a-new-vendor-to-a-product">Assign a new vendor to a product</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+            <a href="#orders" class="toc-h1 toc-link" data-title="orders">Orders</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#list-all-orders-by-vendor" class="toc-h2 toc-link" data-title="List all orders by vendor">List all orders by vendor</a>
+                    <a href="#list-all-orders-by-vendor" class="toc-h2 toc-link" data-title="list-all-orders-by-vendor">List all orders by vendor</a>
                   </li>
                   <li>
-                    <a href="#list-a-specific-order-by-a-vendor" class="toc-h2 toc-link" data-title="List a specific order by a vendor">List a specific order by a vendor</a>
+                    <a href="#list-a-specific-order-by-a-vendor" class="toc-h2 toc-link" data-title="list-a-specific-order-by-a-vendor">List a specific order by a vendor</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
+            <a href="#coupons" class="toc-h1 toc-link" data-title="coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#list-all-coupons-by-vendor" class="toc-h2 toc-link" data-title="List all coupons by vendor">List all coupons by vendor</a>
+                    <a href="#list-all-coupons-by-vendor" class="toc-h2 toc-link" data-title="list-all-coupons-by-vendor">List all coupons by vendor</a>
                   </li>
                   <li>
-                    <a href="#list-a-specific-coupon-by-a-vendor" class="toc-h2 toc-link" data-title="List a specific coupon by a vendor">List a specific coupon by a vendor</a>
+                    <a href="#list-a-specific-coupon-by-a-vendor" class="toc-h2 toc-link" data-title="list-a-specific-coupon-by-a-vendor">List a specific coupon by a vendor</a>
                   </li>
                   <li>
-                    <a href="#create-a-vendor-39-s-coupon" class="toc-h2 toc-link" data-title="Create a vendor's coupon">Create a vendor's coupon</a>
+                    <a href="#create-a-vendor-39-s-coupon" class="toc-h2 toc-link" data-title="create-a-vendor-s-coupon">Create a vendor's coupon</a>
                   </li>
                   <li>
-                    <a href="#assign-a-new-vendor-to-a-coupon" class="toc-h2 toc-link" data-title="Assign a new vendor to a coupon">Assign a new vendor to a coupon</a>
+                    <a href="#assign-a-new-vendor-to-a-coupon" class="toc-h2 toc-link" data-title="assign-a-new-vendor-to-a-coupon">Assign a new vendor to a coupon</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+            <a href="#changelog" class="toc-h1 toc-link" data-title="changelog">Changelog</a>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
           <li>
-            <a href="#vendor-review" class="toc-h1 toc-link" data-title="Vendor Review">Vendor Review</a>
+            <a href="#vendor-review" class="toc-h1 toc-link" data-title="vendor-review">Vendor Review</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-reviews-from-a-vendor" class="toc-h2 toc-link" data-title="Get all reviews from a vendor">Get all reviews from a vendor</a>
+                    <a href="#get-all-reviews-from-a-vendor" class="toc-h2 toc-link" data-title="get-all-reviews-from-a-vendor">Get all reviews from a vendor</a>
                   </li>
                   <li>
-                    <a href="#get-single-review-of-a-vendor" class="toc-h2 toc-link" data-title="Get single review of a vendor">Get single review of a vendor</a>
+                    <a href="#get-single-review-of-a-vendor" class="toc-h2 toc-link" data-title="get-single-review-of-a-vendor">Get single review of a vendor</a>
                   </li>
                   <li>
-                    <a href="#create-a-new-vendor-review" class="toc-h2 toc-link" data-title="Create a new vendor review:">Create a new vendor review:</a>
+                    <a href="#create-a-new-vendor-review" class="toc-h2 toc-link" data-title="create-a-new-vendor-review">Create a new vendor review:</a>
                   </li>
                   <li>
-                    <a href="#update-a-single-vendor-review" class="toc-h2 toc-link" data-title="Update a single vendor review:">Update a single vendor review:</a>
+                    <a href="#update-a-single-vendor-review" class="toc-h2 toc-link" data-title="update-a-single-vendor-review">Update a single vendor review:</a>
                   </li>
               </ul>
           </li>
-      </ul>
+      </div>
         <ul class="toc-footer">
             <li><a target="_blank" href="https://github.com/multivendorx/multivendorx.github.io">Contribute to MultiVendorX REST API Docs</a></li>
             <li><a target="_blank" href="https://wc-marketplace.com/knowledgebase/wcmp-hooks-filters/">MultiVendorX Hooks and Filters</a></li>
