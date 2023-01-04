@@ -437,7 +437,7 @@ curl https://example.com/wp-json/wcmp/v1/vendors \
 
 ## Retrieve a Specific Vendor ##
 
-Get a specific vendor's details by calling the WCMp vendors API and using the `GET` method.
+Get a specific vendor's details by calling the MultiVendorX vendors API and using the `GET` method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">GET</i>
@@ -561,7 +561,7 @@ curl https://example.com/wp-json/wcmp/v1/vendors/19 \
 
 ## Update a Vendor ##
 
-Alter and save vendor's details by calling the WCMp vendors API and using the `PUT` method.
+Alter and save vendor's details by calling the MultiVendorX vendors API and using the `PUT` method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">PUT</i>
@@ -698,7 +698,7 @@ curl -X PUT https://example.com/wp-json/wcmp/v1/vendors/19 \
 
 ## Delete a Vendor ##
 
-Remove a vendor by calling the WCMp vendors API and using the `DELETE` method.
+Remove a vendor by calling the MultiVendorX vendors API and using the `DELETE` method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">DELETE</i>

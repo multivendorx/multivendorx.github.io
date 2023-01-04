@@ -14,8 +14,8 @@ To retrieve all the coupons by a vendor, make a HTTP GET request to WooCommerce'
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/coupons/?vendor=[vendor_id]</h6>
   </div>
@@ -122,8 +122,8 @@ Using this you can list a single coupon of a specific vendor.
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/coupons/[coupon_id]?vendor=[vendor_id]</h6>
   </div>
@@ -147,8 +147,8 @@ Using this you can add a coupon to a vendor.
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/coupons/</h6>
   </div>
@@ -180,8 +180,8 @@ Update your existing coupon with a new vendor or assign a vendor to an existing 
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/coupons/[coupon_id]/</h6>
   </div>

@@ -1,4 +1,4 @@
-# Orders #
+  # Orders #
 MultiVendorX Orders API allows you to list all the orders of a vendor <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. 
 
 ## List all orders by vendor ##
@@ -14,8 +14,8 @@ To retrieve all the orders by a vendor, make a HTTP GET request to WooCommerce's
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -370,8 +370,8 @@ Using this you can list a single order of a specific vendor.
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/[order_id]?vendor=[vendor_id]</h6>
   </div>

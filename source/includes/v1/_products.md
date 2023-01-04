@@ -14,8 +14,8 @@ To retrieve all the products by a vendor, make a HTTP GET request to WooCommerce
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/products/?vendor=[vendor_id]</h6>
   </div>
@@ -272,8 +272,8 @@ Using this you can list a single product of a specific vendor.
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/products/[product_id]?vendor=[vendor_id]</h6>
   </div>
@@ -297,8 +297,8 @@ Using this you can add a product to a vendor.
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/products/</h6>
   </div>
@@ -339,8 +339,8 @@ Update your existing product with a new vendor or assign a vendor to an existing
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/products/[product_id]/</h6>
   </div>

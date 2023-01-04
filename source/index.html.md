@@ -18,9 +18,10 @@ includes:
   - v1/products
   - v1/orders
   - v1/coupons
+  - v1/vendor_review
   - v1/changelog
   - v1/errors.md
-  - v1/vendor_review
+  
 
 search: false
 ---

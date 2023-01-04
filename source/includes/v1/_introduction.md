@@ -1,17 +1,17 @@
 # Introduction #
 
-MultiVendorX 3.1+ have been fully integrated with WordPress REST API. This will now let developers interact with sites remotely by sending and receiving JSON objects. When a data is sent out or a HTTP(S) request is made to the API from external applications, the response will be returned in JSON, thereby allowing WCMp data to be created, read, updated or deleted.
+MultiVendorX have been fully integrated with WordPress REST API. This will now let developers interact with sites remotely by sending and receiving JSON objects. When a data is sent out or a HTTP(S) request is made to the API from external applications, the response will be returned in JSON, thereby allowing MultiVendorX data to be created, read, updated or deleted.
 
 MultiVendorX REST API has been introduced extending <a target="_blank" href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a>.
 
 ## Prerequisites ##
 
 <aside class="notice">
-  <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest WCMp REST API feature.
+  <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest MultiVendorX REST API feature.
 </aside>
 To use __MultiVendorX REST API__ make sure you are using:
 
-* WC Marketplace 3.1+.
+* MultiVendorX.
 * WooCommerce 3.0+.
 * WordPress 4.7+.
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. __Default permalinks will not work.__
@@ -28,10 +28,10 @@ JSONP is a method for sending JSON data without worrying about cross-domain issu
 MultiVendorX REST API supports JSONP by default about which you may read it <a target="_blank" href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.
 
 A syntactical representation of a JSONP request is provided below:
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/.../?_jsonp=callback</h6>
+    <h6>/wp-json/mvx/v1/.../?_jsonp=callback</h6>
   </div>
 </div>
 
@@ -48,7 +48,7 @@ curl https://example.com/wp-json/wcmp/v1/vendors/14?_jsonp=vendorDetails \
 
 ## Starting Out ##
 
-Generate API credentials (Consumer Key & Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the WP REST API.
+Generate API credentials (Consumer Key & Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the MultiVendorX REST API.
 
 We do not create a different credential set, rather we use WooCommerce's API credentials thereby you need to authenticate only once.
 
@@ -58,16 +58,16 @@ Use HTTP methods to map CRUD (create, retrieve, update, delete) operations to HT
 
 | HTTP methods  | Operations                    | Syntax                                                                                                                                            |
 | ------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------        |
-| `GET`         | Retrieve / List information   | <div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
-| `POST`        | Create an item                | <div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>     |
-| `PUT`         | Update a pre-existing item    | <div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
-| `DELETE`      | Remove an item                | <div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div> |
+| `GET`         | Retrieve / List information   | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
+| `POST`        | Create an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>     |
+| `PUT`         | Update a pre-existing item    | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
+| `DELETE`      | Remove an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div> |
 
 ## Sending a HTTP Request ##
 
 A syntactical representation of a HTTP request is provided below:
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wcmp/v1</h6>
   </div>
@@ -255,7 +255,7 @@ curl https://example.com/wp-json/wcmp/v1/
 
 ## Pagination ##
 
-MultiVendorX REST API supports pagination therefore you can also paginate results returned by WCMp REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the `?per_page` parameter. The syntax for the same would be:
+MultiVendorX REST API supports pagination therefore you can also paginate results returned by MultiVendorX REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the `?per_page` parameter. The syntax for the same would be:
 
 `GET /vendors?per_page=15`
 
@@ -283,7 +283,7 @@ Some rare times you might encounter errors when accessing the REST API. There ar
 
 ```json
 {
-  "code": "wcmp_rest_cannot_create",
+  "code": "mvx_rest_cannot_create",
   "message": "Sorry, you cannot create vendors.",
   "data": {
     "status": 401
