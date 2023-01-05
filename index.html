@@ -307,11 +307,6 @@
                   <li>
                     <a href="#assign-a-new-vendor-to-a-product" class="toc-h2 toc-link" data-title="assign-a-new-vendor-to-a-product">Assign a new vendor to a product</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#orders" class="toc-h1 toc-link" data-title="orders">Orders</a>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#list-all-orders-by-vendor" class="toc-h2 toc-link" data-title="list-all-orders-by-vendor">List all orders by vendor</a>
                   </li>
@@ -338,12 +333,6 @@
               </ul>
           </li>
           <li>
-            <a href="#changelog" class="toc-h1 toc-link" data-title="changelog">Changelog</a>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
-          </li>
-          <li>
             <a href="#vendor-review" class="toc-h1 toc-link" data-title="vendor-review">Vendor Review</a>
               <ul class="toc-list-h2">
                   <li>
@@ -360,9 +349,15 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#changelog" class="toc-h1 toc-link" data-title="changelog">Changelog</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
       </div>
         <ul class="toc-footer">
-            <li><a target="_blank" href="https://github.com/multivendorx/multivendorx.github.io">Contribute to MultiVendorX REST API Docs</a></li>
+            <li><a target="_blank" href="https://github.com/wc-marketplace/wc-marketplace.github.io">Contribute to MultiVendorX REST API Docs</a></li>
             <li><a target="_blank" href="https://wc-marketplace.com/knowledgebase/wcmp-hooks-filters/">MultiVendorX Hooks and Filters</a></li>
             <li><a target="_blank" href="https://multivendorx.com/get-help/">MultiVendorX Product Documentation</a></li>
             <li><a target="_blank" href="https://multivendorx.com/support-forum/">Connect to MultiVendorX Support</a></li>
@@ -374,18 +369,18 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>MultiVendorX 3.1+ have been fully integrated with WordPress REST API. This will now let developers interact with sites remotely by sending and receiving JSON objects. When a data is sent out or a HTTP(S) request is made to the API from external applications, the response will be returned in JSON, thereby allowing WCMp data to be created, read, updated or deleted.</p>
+<p>MultiVendorX have been fully integrated with WordPress REST API. This will now let developers interact with sites remotely by sending and receiving JSON objects. When a data is sent out or a HTTP(S) request is made to the API from external applications, the response will be returned in JSON, thereby allowing MultiVendorX data to be created, read, updated or deleted.</p>
 
 <p>MultiVendorX REST API has been introduced extending <a target="_blank" href="https://developer.wordpress.org/rest-api/">WordPress REST API</a> and <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a>.</p>
 <h2 id='prerequisites'>Prerequisites</h2>
 <aside class="notice">
-  <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest WCMp REST API feature.
+  <strong>Note:</strong> There is absolutely no need to install any extra plugin to access the latest MultiVendorX REST API feature.
 </aside>
 
 <p>To use <strong>MultiVendorX REST API</strong> make sure you are using:</p>
 
 <ul>
-<li>WC Marketplace 3.1+.</li>
+<li>MultiVendorX.</li>
 <li>WooCommerce 3.0+.</li>
 <li>WordPress 4.7+.</li>
 <li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
@@ -401,10 +396,10 @@
 <p>MultiVendorX REST API supports JSONP by default about which you may read it <a target="_blank" href="https://developer.wordpress.org/rest-api/using-the-rest-api/global-parameters/#_jsonp">here</a>.</p>
 
 <p>A syntactical representation of a JSONP request is provided below:
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/.../?_jsonp=callback</h6>
+    <h6>/wp-json/mvx/v1/.../?_jsonp=callback</h6>
   </div>
 </div></p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/wcmp/v1/vendors/14?_jsonp<span class="o">=</span>vendorDetails <span class="se">\</span>
@@ -415,7 +410,7 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="err">/**/vendorDetails(</span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="nl">"login"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"first_name"</span><span class="p">:</span><span class="s2">"Alex"</span><span class="p">,</span><span class="nl">"last_name"</span><span class="p">:</span><span class="s2">"Sarnal"</span><span class="p">,</span><span class="nl">"nice_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"display_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"alex@example.com"</span><span class="p">,</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"registered"</span><span class="p">:</span><span class="s2">"2018-05-31 13:29:05"</span><span class="p">,</span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="nl">"roles"</span><span class="p">:[</span><span class="s2">"dc_vendor"</span><span class="p">],</span><span class="nl">"allcaps"</span><span class="p">:{</span><span class="nl">"read"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"manage_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_posts"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_posts"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nl">"view_woocommerce_reports"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"assign_product_terms"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"upload_files"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_import_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_export_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"dc_vendor"</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nl">"timezone_string"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"gmt_offset"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"shop"</span><span class="p">:{</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">vendor</span><span class="se">\/</span><span class="s2">alex</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="nl">"title"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"slug"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"image"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"banner"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"address"</span><span class="p">:{</span><span class="nl">"address_1"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"address_2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"postcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"social"</span><span class="p">:{</span><span class="nl">"facebook"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"twitter"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"google_plus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"linkdin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"youtube"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"instagram"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"payment"</span><span class="p">:{</span><span class="nl">"payment_mode"</span><span class="p">:</span><span class="s2">"mangopay_gateway"</span><span class="p">,</span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="s2">"current"</span><span class="p">,</span><span class="nl">"bank_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_address"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"account_holder_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"aba_routing_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"destination_currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"iban"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"paypal_email"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"message_to_buyers"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"review"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"_links"</span><span class="p">:{</span><span class="nl">"self"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors</span><span class="se">\/</span><span class="s2">14"</span><span class="p">}],</span><span class="nl">"collection"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors"</span><span class="p">}]}}</span><span class="err">)</span><span class="w">
 </span></code></pre></div><h2 id='starting-out'>Starting Out</h2>
-<p>Generate API credentials (Consumer Key &amp; Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the WP REST API.</p>
+<p>Generate API credentials (Consumer Key &amp; Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the MultiVendorX REST API.</p>
 
 <p>We do not create a different credential set, rather we use WooCommerce&#39;s API credentials thereby you need to authenticate only once.</p>
 <h2 id='http-methods'>HTTP Methods</h2>
@@ -431,28 +426,28 @@
 <tr>
 <td><code>GET</code></td>
 <td>Retrieve / List information</td>
-<td><div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>POST</code></td>
 <td>Create an item</td>
-<td><div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>PUT</code></td>
 <td>Update a pre-existing item</td>
-<td><div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>DELETE</code></td>
 <td>Remove an item</td>
-<td><div class="wcmp-api-endpoint"><div class="wcmp-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
 </tr>
 </tbody></table>
 <h2 id='sending-a-http-request'>Sending a HTTP Request</h2>
 <p>A syntactical representation of a HTTP request is provided below:
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wcmp/v1</h6>
   </div>
@@ -633,7 +628,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='pagination'>Pagination</h2>
-<p>MultiVendorX REST API supports pagination therefore you can also paginate results returned by WCMp REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the <code>?per_page</code> parameter. The syntax for the same would be:</p>
+<p>MultiVendorX REST API supports pagination therefore you can also paginate results returned by MultiVendorX REST API in the same way WordPress does. If a request returns multiple items it will be paginated to 10 items automatically. However, you can change the default behaviour by specifying the <code>?per_page</code> parameter. The syntax for the same would be:</p>
 
 <p><code>GET /vendors?per_page=15</code></p>
 
@@ -675,7 +670,7 @@
 <p>MultiVendorX REST API 401 error example:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp_rest_cannot_create"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx_rest_cannot_create"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sorry, you cannot create vendors."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="w">
@@ -1262,7 +1257,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='retrieve-a-specific-vendor'>Retrieve a Specific Vendor</h2>
-<p>Get a specific vendor&#39;s details by calling the WCMp vendors API and using the <code>GET</code> method.
+<p>Get a specific vendor&#39;s details by calling the MultiVendorX vendors API and using the <code>GET</code> method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">GET</i>
@@ -1386,7 +1381,7 @@
 </tr>
 </tbody></table>
 <h2 id='update-a-vendor'>Update a Vendor</h2>
-<p>Alter and save vendor&#39;s details by calling the WCMp vendors API and using the <code>PUT</code> method.
+<p>Alter and save vendor&#39;s details by calling the MultiVendorX vendors API and using the <code>PUT</code> method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">PUT</i>
@@ -1526,7 +1521,7 @@
 </tr>
 </tbody></table>
 <h2 id='delete-a-vendor'>Delete a Vendor</h2>
-<p>Remove a vendor by calling the WCMp vendors API and using the <code>DELETE</code> method.
+<p>Remove a vendor by calling the MultiVendorX vendors API and using the <code>DELETE</code> method.
 <div class="wcmp-api-endpoint">
   <div class="wcmp-endpoint-data">
     <i class="label label-get">DELETE</i>
@@ -2105,8 +2100,8 @@
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/products/?vendor=[vendor_id]</h6>
   </div>
@@ -2356,8 +2351,8 @@
 </span></code></pre></div><h2 id='list-a-specific-product-by-a-vendor'>List a specific product by a vendor</h2>
 <p>Using this you can list a single product of a specific vendor.</p>
 <h3 id='http-request-2'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/products/[product_id]?vendor=[vendor_id]</h6>
   </div>
@@ -2373,8 +2368,8 @@
 </code></pre></div><h2 id='create-a-vendor-39-s-product'>Create a vendor&#39;s product</h2>
 <p>Using this you can add a product to a vendor.</p>
 <h3 id='http-request-3'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/products/</h6>
   </div>
@@ -2415,8 +2410,8 @@
 <h2 id='assign-a-new-vendor-to-a-product'>Assign a new vendor to a product</h2>
 <p>Update your existing product with a new vendor or assign a vendor to an existing vendor-less product.</p>
 <h3 id='http-request-4'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/products/[product_id]/</h6>
   </div>
@@ -2557,8 +2552,8 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='orders'>Orders</h1>
-<p>MultiVendorX Orders API allows you to list all the orders of a vendor <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. </p>
+</span></code></pre></div><p># Orders #
+MultiVendorX Orders API allows you to list all the orders of a vendor <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#orders">(extends WooCommerce Orders API)</a>. </p>
 <h2 id='list-all-orders-by-vendor'>List all orders by vendor</h2>
 <p>To retrieve all the orders by a vendor, make a HTTP GET request to WooCommerce&#39;s Orders API with a <code>vendor</code> parameter passed to it.</p>
 <h3 id='accepted-parameters'>Accepted Parameters</h3>
@@ -2582,8 +2577,8 @@
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -2931,8 +2926,8 @@
 </span></code></pre></div><h2 id='list-a-specific-order-by-a-vendor'>List a specific order by a vendor</h2>
 <p>Using this you can list a single order of a specific vendor.</p>
 <h3 id='http-request-2'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/[order_id]?vendor=[vendor_id]</h6>
   </div>
@@ -2970,8 +2965,8 @@
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/coupons/?vendor=[vendor_id]</h6>
   </div>
@@ -3071,8 +3066,8 @@
 </span></code></pre></div><h2 id='list-a-specific-coupon-by-a-vendor'>List a specific coupon by a vendor</h2>
 <p>Using this you can list a single coupon of a specific vendor.</p>
 <h3 id='http-request-2'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/coupons/[coupon_id]?vendor=[vendor_id]</h6>
   </div>
@@ -3088,8 +3083,8 @@
 </code></pre></div><h2 id='create-a-vendor-39-s-coupon'>Create a vendor&#39;s coupon</h2>
 <p>Using this you can add a coupon to a vendor.</p>
 <h3 id='http-request-3'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/coupons/</h6>
   </div>
@@ -3121,8 +3116,8 @@
 <h2 id='assign-a-new-vendor-to-a-coupon'>Assign a new vendor to a coupon</h2>
 <p>Update your existing coupon with a new vendor or assign a vendor to an existing vendor-less coupon.</p>
 <h3 id='http-request-4'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
     <h6>/wp-json/wc/v2/coupons/[coupon_id]/</h6>
   </div>
@@ -3179,72 +3174,7 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='changelog'>Changelog</h1>
-<p><strong>1.0.0 – 2018-06-12</strong>
-<ul>
-    <li>Initial commit</li>
-    <li>Uses OAuth 1.0</li>
-    <li>Includes basic vendor, products by vendor, orders by vendor and coupons by vendor REST API</li>
-</ul></p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The MultiVendorX API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
-<h1 id='vendor-review'>Vendor Review</h1>
+</span></code></pre></div><h1 id='vendor-review'>Vendor Review</h1>
 <p>MultiVendorX Orders This API request help you retrieve all the vendor&#39;s review</p>
 <h2 id='get-all-reviews-from-a-vendor'>Get all reviews from a vendor</h2>
 <p>list of all the vendors reviews created on your site by calling the WCMp vendors API and using the GET method.</p>
@@ -4394,7 +4324,72 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><h1 id='changelog'>Changelog</h1>
+<p><strong>1.0.0 – 2018-06-12</strong>
+<ul>
+    <li>Initial commit</li>
+    <li>Uses OAuth 1.0</li>
+    <li>Includes basic vendor, products by vendor, orders by vendor and coupons by vendor REST API</li>
+</ul></p>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
+
+<p>The MultiVendorX API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
