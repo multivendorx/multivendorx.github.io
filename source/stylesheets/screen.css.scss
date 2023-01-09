@@ -664,14 +664,14 @@ html, body {
         color: #fff;
       }
       td{
-        .wcmp-api-endpoint {
+        .mvx-api-endpoint {
           margin: 5px 0;
           padding: 2px;
           width: 100%;
         }
       }
   }
-  .wcmp-api-endpoint {
+  .mvx-api-endpoint {
     margin: 10px 27px;
     padding: 5px;
     border-radius: 3px;
@@ -682,7 +682,7 @@ html, body {
     @media (max-width: 700px){
        width: calc(100% - 74px);
     }
-    .wcmp-endpoint-data{
+    .mvx-endpoint-data{
       i.label {
         display: inline-block;
         padding: 10px;
