@@ -124,7 +124,7 @@ curl -X GET https://example.com/wp-json/wc/v2/products?vendor=13 \
         "meta_data": [
             {
                 "id": 11366,
-                "key": "_wcmp_child_product",
+                "key": "_mvx_child_product",
                 "value": "1"
             }
         ],
@@ -241,7 +241,7 @@ curl -X GET https://example.com/wp-json/wc/v2/products?vendor=13 \
         "meta_data": [
             {
                 "id": 11332,
-                "key": "_wcmp_child_product",
+                "key": "_mvx_child_product",
                 "value": "1"
             }
         ],
@@ -456,17 +456,17 @@ curl -X POST https://example.com/wp-json/wc/v2/products/485 \
         },
         {
             "id": 11401,
-            "key": "_wcmp_cancallation_policy",
+            "key": "_mvx_cancallation_policy",
             "value": ""
         },
         {
             "id": 11402,
-            "key": "_wcmp_refund_policy",
+            "key": "_mvx_refund_policy",
             "value": ""
         },
         {
             "id": 11403,
-            "key": "_wcmp_shipping_policy",
+            "key": "_mvx_shipping_policy",
             "value": ""
         }
     ],

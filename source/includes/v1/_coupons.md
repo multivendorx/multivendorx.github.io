@@ -74,7 +74,7 @@ curl -X POST https://example.com/wp-json/wc/v2/coupons/?vendor=13 \
     },
     {
         "id": 489,
-        "code": "wcmp coupon",
+        "code": "mvx coupon",
         "amount": "10.00",
         "date_created": "2018-06-28T06:18:49",
         "date_created_gmt": "2018-06-28T06:18:49",

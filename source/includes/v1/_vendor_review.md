@@ -3,7 +3,7 @@ MultiVendorX Orders This API request help you retrieve all the vendor's review
  
 
 ## Get all reviews from a vendor  ##
-list of all the vendors reviews created on your site by calling the WCMp vendors API and using the GET method.
+list of all the vendors reviews created on your site by calling the MultiVendorX vendors API and using the GET method.
 
 
 ### Accepted Parameters ###
@@ -19,8 +19,8 @@ list of all the vendors reviews created on your site by calling the WCMp vendors
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -375,8 +375,8 @@ List of a single vendors reviews created on your site by calling the MultiVendor
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/[order_id]?vendor=[vendor_id]</h6>
   </div>
@@ -412,8 +412,8 @@ A new vendor review can be created by calling this MultivenorX API and by using 
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -781,8 +781,8 @@ A single vendor review can be created by calling this MultivenorX API and by usi
 
 ### HTTP request ###
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>

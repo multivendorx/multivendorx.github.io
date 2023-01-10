@@ -90,7 +90,7 @@ curl -X GET https://example.com/wp-json/wc/v2/orders?vendor=13 \
         "meta_data": [
             {
                 "id": 11251,
-                "key": "_wcmp_order_processed",
+                "key": "_mvx_order_processed",
                 "value": "1"
             },
             {
@@ -262,7 +262,7 @@ curl -X GET https://example.com/wp-json/wc/v2/orders?vendor=13 \
         "meta_data": [
             {
                 "id": 10938,
-                "key": "_wcmp_order_processed",
+                "key": "_mvx_order_processed",
                 "value": "1"
             }
         ],

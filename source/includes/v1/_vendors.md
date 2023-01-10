@@ -77,17 +77,17 @@ MultiVendorX vendors API allows you to create, view, update, and delete individu
 ## Create a Vendor ##
 
 A new vendor can be created by calling the MultiVendorX vendors API and using the `POST` method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/wcmp/v1/vendors</h6>
+    <h6>/wp-json/mvx/v1/vendors</h6>
   </div>
 </div>
 
 A vendor will be registered on your site and is ready to sell upon successful API call.
 
 ```shell
-curl -X POST https://example.com/wp-json/wcmp/v1/vendors \
+curl -X POST https://example.com/wp-json/mvx/v1/vendors \
 	-u consumer_key:consumer_secret \
 	-H "Content-Type: application/json" \
 	-d '{
@@ -189,12 +189,12 @@ curl -X POST https://example.com/wp-json/wcmp/v1/vendors \
     "_links": {
         "self": [
             {
-                "href": "http://example.com/wp-json/wcmp/v1/vendors/19"
+                "href": "http://example.com/wp-json/mvx/v1/vendors/19"
             }
         ],
         "collection": [
             {
-                "href": "http://example.com/wp-json/wcmp/v1/vendors"
+                "href": "http://example.com/wp-json/mvx/v1/vendors"
             }
         ]
     }
@@ -205,15 +205,15 @@ curl -X POST https://example.com/wp-json/wcmp/v1/vendors \
 
 | Error Code                    		  | Debugging                                                 		|
 |---------------------------------------  |-------------------------------------------------------------- 	|
-| `400` `wcmp_rest_dc_vendor_exists`      | A resource is already registerred with the `id` you've provided   |
-| `400` `wcmp_rest_dc_vendor_login_empty` | You've missed filling out the username in the `login` field   	|
-| `400` `wcmp_rest_dc_vendor_email_empty` | You've missed filling out the email in the `email` field         	|
+| `400` `mvx_rest_dc_vendor_exists`      | A resource is already registerred with the `id` you've provided   |
+| `400` `mvx_rest_dc_vendor_login_empty` | You've missed filling out the username in the `login` field   	|
+| `400` `mvx_rest_dc_vendor_email_empty` | You've missed filling out the email in the `email` field         	|
 
-> WCMp REST API 400 error example:
+> MultiVendorX REST API 400 error example:
 
 ```json
 {
-  "code": "wcmp_rest_dc_vendor_login_empty",
+  "code": "mvx_rest_dc_vendor_login_empty",
   "message": "dc_vendor login required.",
   "data": {
     "status": 400
@@ -223,16 +223,16 @@ curl -X POST https://example.com/wp-json/wcmp/v1/vendors \
 
 ## Get all Vendors ##
 
-List all the vendors registered on your site by calling the WCMp vendors API and using the `GET` method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+List all the vendors registered on your site by calling the MultiVendorX vendors API and using the `GET` method.
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/vendors</h6>
+    <h6>/wp-json/mvx/v1/vendors</h6>
   </div>
 </div>
 
 ```shell
-curl https://example.com/wp-json/wcmp/v1/vendors \
+curl https://example.com/wp-json/mvx/v1/vendors \
     -u consumer_key:consumer_secret
 ```
 
@@ -326,12 +326,12 @@ curl https://example.com/wp-json/wcmp/v1/vendors \
         "_links": {
             "self": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors/17"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors/17"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors"
                 }
             ]
         }
@@ -422,12 +422,12 @@ curl https://example.com/wp-json/wcmp/v1/vendors \
         "_links": {
             "self": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors/19"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors/19"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors"
                 }
             ]
         }
@@ -438,15 +438,15 @@ curl https://example.com/wp-json/wcmp/v1/vendors \
 ## Retrieve a Specific Vendor ##
 
 Get a specific vendor's details by calling the MultiVendorX vendors API and using the `GET` method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div>
 
 ```shell
-curl https://example.com/wp-json/wcmp/v1/vendors/19 \
+curl https://example.com/wp-json/mvx/v1/vendors/19 \
 	-u consumer_key:consumer_secret
 ```
 
@@ -540,12 +540,12 @@ curl https://example.com/wp-json/wcmp/v1/vendors/19 \
         "_links": {
             "self": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors/19"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors/19"
                 }
             ],
             "collection": [
                 {
-                    "href": "http://example.com/wp-json/wcmp/v1/vendors"
+                    "href": "http://example.com/wp-json/mvx/v1/vendors"
                 }
             ]
         }
@@ -556,21 +556,21 @@ curl https://example.com/wp-json/wcmp/v1/vendors/19 \
 
 | Error Code                    					| Debugging                                                 			|
 |-------------------------------------------------	|------------------------------------------------------------------- 	|
-| `400` `wcmp_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
+| `400` `mvx_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
 
 
 ## Update a Vendor ##
 
 Alter and save vendor's details by calling the MultiVendorX vendors API and using the `PUT` method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">PUT</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div>
 
 ```shell
-curl -X PUT https://example.com/wp-json/wcmp/v1/vendors/19 \
+curl -X PUT https://example.com/wp-json/mvx/v1/vendors/19 \
 	-u consumer_key:consumer_secret \
 	-H "Content-Type: application/json" \
 	-d '{
@@ -677,12 +677,12 @@ curl -X PUT https://example.com/wp-json/wcmp/v1/vendors/19 \
     "_links": {
         "self": [
             {
-                "href": "http://example.com/wp-json/wcmp/v1/vendors/19"
+                "href": "http://example.com/wp-json/mvx/v1/vendors/19"
             }
         ],
         "collection": [
             {
-                "href": "http://example.com/wp-json/wcmp/v1/vendors"
+                "href": "http://example.com/wp-json/mvx/v1/vendors"
             }
         ]
     }
@@ -692,22 +692,22 @@ curl -X PUT https://example.com/wp-json/wcmp/v1/vendors/19 \
 
 | Error Code                    					| Debugging                                                 			|
 |-------------------------------------------------	|------------------------------------------------------------------- 	|
-| `400` `wcmp_rest_dc_vendor_insufficient_param`    | A resource `id` is invalid or have not been entered  					|
-| `400` `wcmp_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
+| `400` `mvx_rest_dc_vendor_insufficient_param`    | A resource `id` is invalid or have not been entered  					|
+| `400` `mvx_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
 
 
 ## Delete a Vendor ##
 
 Remove a vendor by calling the MultiVendorX vendors API and using the `DELETE` method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">DELETE</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div>
 
 ```shell
-curl -X DELETE https://example.com/wp-json/wcmp/v1/vendors/19 \
+curl -X DELETE https://example.com/wp-json/mvx/v1/vendors/19 \
 	-u consumer_key:consumer_secret'
 ```
 
@@ -807,22 +807,22 @@ curl -X DELETE https://example.com/wp-json/wcmp/v1/vendors/19 \
 
 | Error Code                    					| Debugging                                                 			|
 |-------------------------------------------------	|------------------------------------------------------------------- 	|
-| `400` `wcmp_rest_dc_vendor_insufficient_param`    | A resource `id` is invalid or have not been entered  					|
-| `400` `wcmp_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
+| `400` `mvx_rest_dc_vendor_insufficient_param`    | A resource `id` is invalid or have not been entered  					|
+| `400` `mvx_rest_is_not_a_dc_vendor` 				| A resource `id` entered does not match with the registered vendors   	|
 
 ## Batch update Vendors ##
 
 Using this API with `POST` helps you to batch create, update and delete multiple vendors.
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">POST</i>
-    <h6>/wp-json/wcmp/v1/vendors/batch</h6>
+    <h6>/wp-json/mvx/v1/vendors/batch</h6>
   </div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/wcmp/v21/vendors/batch \
+curl -X POST https://example.com/wp-json/mvx/v21/vendors/batch \
 	-u consumer_key:consumer_secret \
 	-H "Content-Type: application/json" \
 	-d '{
@@ -955,12 +955,12 @@ curl -X POST https://example.com/wp-json/wcmp/v21/vendors/batch \
             "_links": {
                 "self": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors/20"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors/20"
                     }
                 ],
                 "collection": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors"
                     }
                 ]
             }
@@ -1051,12 +1051,12 @@ curl -X POST https://example.com/wp-json/wcmp/v21/vendors/batch \
             "_links": {
                 "self": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors/21"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors/21"
                     }
                 ],
                 "collection": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors"
                     }
                 ]
             }
@@ -1149,12 +1149,12 @@ curl -X POST https://example.com/wp-json/wcmp/v21/vendors/batch \
             "_links": {
                 "self": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors/16"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors/16"
                     }
                 ],
                 "collection": [
                     {
-                        "href": "http://localhost/v3/wp-json/wcmp/v1/vendors"
+                        "href": "http://localhost/v3/wp-json/mvx/v1/vendors"
                     }
                 ]
             }

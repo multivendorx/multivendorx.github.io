@@ -18,7 +18,7 @@ To use __MultiVendorX REST API__ make sure you are using:
 * You may access the API over either HTTP or HTTPS.
 
 <aside class="notice">
-  <strong>Note:</strong> Before you proceed, go through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding of WCMp and WooCommerce REST API.
+  <strong>Note:</strong> Before you proceed, go through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding of MultiVendorX and WooCommerce REST API.
 </aside>
 
 ## JSONP ##
@@ -36,14 +36,14 @@ A syntactical representation of a JSONP request is provided below:
 </div>
 
 ```shell
-curl https://example.com/wp-json/wcmp/v1/vendors/14?_jsonp=vendorDetails \
+curl https://example.com/wp-json/mvx/v1/vendors/14?_jsonp=vendorDetails \
   -u consumer_key:consumer_secret
 ```
 
 > Response:
 
 ```json
-/**/vendorDetails({"id":14,"login":"alex","first_name":"Alex","last_name":"Sarnal","nice_name":"alex","display_name":"alex","email":"alex@example.com","url":"","registered":"2018-05-31 13:29:05","status":"0","roles":["dc_vendor"],"allcaps":{"read":true,"manage_product":true,"edit_posts":true,"delete_posts":false,"view_woocommerce_reports":true,"assign_product_terms":true,"upload_files":true,"read_product":true,"read_shop_coupon":true,"edit_product":true,"delete_product":true,"edit_products":true,"delete_products":true,"publish_products":true,"edit_published_products":true,"delete_published_products":true,"edit_shop_coupon":true,"edit_shop_coupons":true,"delete_shop_coupon":true,"delete_shop_coupons":true,"publish_shop_coupons":true,"edit_published_shop_coupons":true,"delete_published_shop_coupons":true,"vendor_import_capability":true,"vendor_export_capability":true,"dc_vendor":true},"timezone_string":"","gmt_offset":"","shop":{"url":"http:\/\/example.com\/vendor\/alex\/","title":"alex","slug":"alex","description":"","image":"","banner":""},"address":{"address_1":"","address_2":"","city":"","state":"","country":"","postcode":"","phone":""},"social":{"facebook":"","twitter":"","google_plus":"","linkdin":"","youtube":"","instagram":""},"payment":{"payment_mode":"mangopay_gateway","bank_account_type":"current","bank_name":"","bank_account_number":"","bank_address":"","account_holder_name":"","aba_routing_number":"","destination_currency":"","iban":"","paypal_email":""},"message_to_buyers":"","review":0,"_links":{"self":[{"href":"http:\/\/example.com\/wp-json\/wcmp\/v1\/vendors\/14"}],"collection":[{"href":"http:\/\/example.com\/wp-json\/wcmp\/v1\/vendors"}]}})
+/**/vendorDetails({"id":14,"login":"alex","first_name":"Alex","last_name":"Sarnal","nice_name":"alex","display_name":"alex","email":"alex@example.com","url":"","registered":"2018-05-31 13:29:05","status":"0","roles":["dc_vendor"],"allcaps":{"read":true,"manage_product":true,"edit_posts":true,"delete_posts":false,"view_woocommerce_reports":true,"assign_product_terms":true,"upload_files":true,"read_product":true,"read_shop_coupon":true,"edit_product":true,"delete_product":true,"edit_products":true,"delete_products":true,"publish_products":true,"edit_published_products":true,"delete_published_products":true,"edit_shop_coupon":true,"edit_shop_coupons":true,"delete_shop_coupon":true,"delete_shop_coupons":true,"publish_shop_coupons":true,"edit_published_shop_coupons":true,"delete_published_shop_coupons":true,"vendor_import_capability":true,"vendor_export_capability":true,"dc_vendor":true},"timezone_string":"","gmt_offset":"","shop":{"url":"http:\/\/example.com\/vendor\/alex\/","title":"alex","slug":"alex","description":"","image":"","banner":""},"address":{"address_1":"","address_2":"","city":"","state":"","country":"","postcode":"","phone":""},"social":{"facebook":"","twitter":"","google_plus":"","linkdin":"","youtube":"","instagram":""},"payment":{"payment_mode":"mangopay_gateway","bank_account_type":"current","bank_name":"","bank_account_number":"","bank_address":"","account_holder_name":"","aba_routing_number":"","destination_currency":"","iban":"","paypal_email":""},"message_to_buyers":"","review":0,"_links":{"self":[{"href":"http:\/\/example.com\/wp-json\/mvx\/v1\/vendors\/14"}],"collection":[{"href":"http:\/\/example.com\/wp-json\/mvx\/v1\/vendors"}]}})
 ```
 
 ## Starting Out ##
@@ -58,10 +58,10 @@ Use HTTP methods to map CRUD (create, retrieve, update, delete) operations to HT
 
 | HTTP methods  | Operations                    | Syntax                                                                                                                                            |
 | ------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------        |
-| `GET`         | Retrieve / List information   | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
-| `POST`        | Create an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>     |
-| `PUT`         | Update a pre-existing item    | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div>       |
-| `DELETE`      | Remove an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div> |
+| `GET`         | Retrieve / List information   | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/mvx/v1/.../</h6></div></div>       |
+| `POST`        | Create an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/mvx/v1/.../</h6></div></div>     |
+| `PUT`         | Update a pre-existing item    | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/mvx/v1/.../</h6></div></div>       |
+| `DELETE`      | Remove an item                | <div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/mvx/v1/.../</h6></div></div> |
 
 ## Sending a HTTP Request ##
 
@@ -69,23 +69,23 @@ A syntactical representation of a HTTP request is provided below:
 <div class="mvx-api-endpoint">
   <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1</h6>
+    <h6>/wp-json/mvx/v1</h6>
   </div>
 </div>
 
 
 ```shell
-curl https://example.com/wp-json/wcmp/v1/
+curl https://example.com/wp-json/mvx/v1/
 ```
 
 > Response:
 
 ```json
 {
-    "namespace": "wcmp/v1",
+    "namespace": "mvx/v1",
     "routes": {
-        "/wcmp/v1": {
-            "namespace": "wcmp/v1",
+        "/mvx/v1": {
+            "namespace": "mvx/v1",
             "methods": [
                 "GET"
             ],
@@ -97,7 +97,7 @@ curl https://example.com/wp-json/wcmp/v1/
                     "args": {
                         "namespace": {
                             "required": false,
-                            "default": "wcmp/v1"
+                            "default": "mvx/v1"
                         },
                         "context": {
                             "required": false,
@@ -107,11 +107,11 @@ curl https://example.com/wp-json/wcmp/v1/
                 }
             ],
             "_links": {
-                "self": "http://example.com/wp-json/wcmp/v1"
+                "self": "http://example.com/wp-json/mvx/v1"
             }
         },
-        "/wcmp/v1/vendors": {
-            "namespace": "wcmp/v1",
+        "/mvx/v1/vendors": {
+            "namespace": "mvx/v1",
             "methods": [
                 "GET",
                 "POST"
@@ -158,11 +158,11 @@ curl https://example.com/wp-json/wcmp/v1/
                 }
             ],
             "_links": {
-                "self": "http://example.com/wp-json/wcmp/v1/vendors"
+                "self": "http://example.com/wp-json/mvx/v1/vendors"
             }
         },
-        "/wcmp/v1/vendors/(?P<id>[\\d]+)": {
-            "namespace": "wcmp/v1",
+        "/mvx/v1/vendors/(?P<id>[\\d]+)": {
+            "namespace": "mvx/v1",
             "methods": [
                 "GET",
                 "POST",
@@ -221,8 +221,8 @@ curl https://example.com/wp-json/wcmp/v1/
                 }
             ]
         },
-        "/wcmp/v1/vendors/batch": {
-            "namespace": "wcmp/v1",
+        "/mvx/v1/vendors/batch": {
+            "namespace": "mvx/v1",
             "methods": [
                 "POST",
                 "PUT",
@@ -239,7 +239,7 @@ curl https://example.com/wp-json/wcmp/v1/
                 }
             ],
             "_links": {
-                "self": "http://example.com/wp-json/wcmp/v1/vendors/batch"
+                "self": "http://example.com/wp-json/mvx/v1/vendors/batch"
             }
         }
     },
