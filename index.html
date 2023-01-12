@@ -388,7 +388,7 @@
 </ul>
 
 <aside class="notice">
-  <strong>Note:</strong> Before you proceed, go through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding of WCMp and WooCommerce REST API.
+  <strong>Note:</strong> Before you proceed, go through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs">WooCommerce REST API</a> for proper understanding of MultiVendorX and WooCommerce REST API.
 </aside>
 <h2 id='jsonp'>JSONP</h2>
 <p>JSONP is a method for sending JSON data without worrying about cross-domain issues. The JSON data is wrapped up in a callback function as a parameter inside it, but obviously keeping in mind the function exists on the client.</p>
@@ -402,13 +402,13 @@
     <h6>/wp-json/mvx/v1/.../?_jsonp=callback</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/wcmp/v1/vendors/14?_jsonp<span class="o">=</span>vendorDetails <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/mvx/v1/vendors/14?_jsonp<span class="o">=</span>vendorDetails <span class="se">\</span>
   <span class="nt">-u</span> consumer_key:consumer_secret
 </code></pre></div>
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">/**/vendorDetails(</span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="nl">"login"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"first_name"</span><span class="p">:</span><span class="s2">"Alex"</span><span class="p">,</span><span class="nl">"last_name"</span><span class="p">:</span><span class="s2">"Sarnal"</span><span class="p">,</span><span class="nl">"nice_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"display_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"alex@example.com"</span><span class="p">,</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"registered"</span><span class="p">:</span><span class="s2">"2018-05-31 13:29:05"</span><span class="p">,</span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="nl">"roles"</span><span class="p">:[</span><span class="s2">"dc_vendor"</span><span class="p">],</span><span class="nl">"allcaps"</span><span class="p">:{</span><span class="nl">"read"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"manage_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_posts"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_posts"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nl">"view_woocommerce_reports"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"assign_product_terms"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"upload_files"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_import_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_export_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"dc_vendor"</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nl">"timezone_string"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"gmt_offset"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"shop"</span><span class="p">:{</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">vendor</span><span class="se">\/</span><span class="s2">alex</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="nl">"title"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"slug"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"image"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"banner"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"address"</span><span class="p">:{</span><span class="nl">"address_1"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"address_2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"postcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"social"</span><span class="p">:{</span><span class="nl">"facebook"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"twitter"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"google_plus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"linkdin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"youtube"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"instagram"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"payment"</span><span class="p">:{</span><span class="nl">"payment_mode"</span><span class="p">:</span><span class="s2">"mangopay_gateway"</span><span class="p">,</span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="s2">"current"</span><span class="p">,</span><span class="nl">"bank_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_address"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"account_holder_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"aba_routing_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"destination_currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"iban"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"paypal_email"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"message_to_buyers"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"review"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"_links"</span><span class="p">:{</span><span class="nl">"self"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors</span><span class="se">\/</span><span class="s2">14"</span><span class="p">}],</span><span class="nl">"collection"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">wcmp</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors"</span><span class="p">}]}}</span><span class="err">)</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="err">/**/vendorDetails(</span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="nl">"login"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"first_name"</span><span class="p">:</span><span class="s2">"Alex"</span><span class="p">,</span><span class="nl">"last_name"</span><span class="p">:</span><span class="s2">"Sarnal"</span><span class="p">,</span><span class="nl">"nice_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"display_name"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"alex@example.com"</span><span class="p">,</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"registered"</span><span class="p">:</span><span class="s2">"2018-05-31 13:29:05"</span><span class="p">,</span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="nl">"roles"</span><span class="p">:[</span><span class="s2">"dc_vendor"</span><span class="p">],</span><span class="nl">"allcaps"</span><span class="p">:{</span><span class="nl">"read"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"manage_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_posts"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_posts"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nl">"view_woocommerce_reports"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"assign_product_terms"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"upload_files"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"read_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_product"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_products"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupon"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"publish_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"edit_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"delete_published_shop_coupons"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_import_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"vendor_export_capability"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nl">"dc_vendor"</span><span class="p">:</span><span class="kc">true</span><span class="p">},</span><span class="nl">"timezone_string"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"gmt_offset"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"shop"</span><span class="p">:{</span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">vendor</span><span class="se">\/</span><span class="s2">alex</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="nl">"title"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"slug"</span><span class="p">:</span><span class="s2">"alex"</span><span class="p">,</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"image"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"banner"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"address"</span><span class="p">:{</span><span class="nl">"address_1"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"address_2"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"city"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"state"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"country"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"postcode"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"phone"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"social"</span><span class="p">:{</span><span class="nl">"facebook"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"twitter"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"google_plus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"linkdin"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"youtube"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"instagram"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"payment"</span><span class="p">:{</span><span class="nl">"payment_mode"</span><span class="p">:</span><span class="s2">"mangopay_gateway"</span><span class="p">,</span><span class="nl">"bank_account_type"</span><span class="p">:</span><span class="s2">"current"</span><span class="p">,</span><span class="nl">"bank_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_account_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"bank_address"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"account_holder_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"aba_routing_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"destination_currency"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"iban"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"paypal_email"</span><span class="p">:</span><span class="s2">""</span><span class="p">},</span><span class="nl">"message_to_buyers"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nl">"review"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nl">"_links"</span><span class="p">:{</span><span class="nl">"self"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">mvx</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors</span><span class="se">\/</span><span class="s2">14"</span><span class="p">}],</span><span class="nl">"collection"</span><span class="p">:[{</span><span class="nl">"href"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">example.com</span><span class="se">\/</span><span class="s2">wp-json</span><span class="se">\/</span><span class="s2">mvx</span><span class="se">\/</span><span class="s2">v1</span><span class="se">\/</span><span class="s2">vendors"</span><span class="p">}]}}</span><span class="err">)</span><span class="w">
 </span></code></pre></div><h2 id='starting-out'>Starting Out</h2>
 <p>Generate API credentials (Consumer Key &amp; Consumer Secret) following instructions listed in <a target="_blank" href="http://docs.woocommerce.com/document/woocommerce-rest-api/">http://docs.woocommerce.com/document/woocommerce-rest-api/</a> or you may also want to read through <a target="_blank" href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication</a> to authenticate with the MultiVendorX REST API.</p>
 
@@ -426,22 +426,22 @@
 <tr>
 <td><code>GET</code></td>
 <td>Retrieve / List information</td>
-<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-get">GET</i><h6>/wp-json/mvx/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>POST</code></td>
 <td>Create an item</td>
-<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-post">POST</i><h6>/wp-json/mvx/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>PUT</code></td>
 <td>Update a pre-existing item</td>
-<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-put">PUT</i><h6>/wp-json/mvx/v1/.../</h6></div></div></td>
 </tr>
 <tr>
 <td><code>DELETE</code></td>
 <td>Remove an item</td>
-<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/wcmp/v1/.../</h6></div></div></td>
+<td><div class="mvx-api-endpoint"><div class="mvx-endpoint-data"><i class="label label-delete">DELETE</i><h6>/wp-json/mvx/v1/.../</h6></div></div></td>
 </tr>
 </tbody></table>
 <h2 id='sending-a-http-request'>Sending a HTTP Request</h2>
@@ -449,19 +449,19 @@
 <div class="mvx-api-endpoint">
   <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1</h6>
+    <h6>/wp-json/mvx/v1</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/wcmp/v1/
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/mvx/v1/
 </code></pre></div>
 <blockquote>
 <p>Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"routes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"/wcmp/v1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"/mvx/v1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"GET"</span><span class="w">
             </span><span class="p">],</span><span class="w">
@@ -473,7 +473,7 @@
                     </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                             </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="w">
+                            </span><span class="nl">"default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="w">
                         </span><span class="p">},</span><span class="w">
                         </span><span class="nl">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                             </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -483,11 +483,11 @@
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1"</span><span class="w">
+                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"/wcmp/v1/vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"/mvx/v1/vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"POST"</span><span class="w">
@@ -534,11 +534,11 @@
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"/wcmp/v1/vendors/(?P&lt;id&gt;[\\d]+)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"/mvx/v1/vendors/(?P&lt;id&gt;[\\d]+)"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
@@ -597,8 +597,8 @@
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"/wcmp/v1/vendors/batch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp/v1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"/mvx/v1/vendors/batch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx/v1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"methods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
@@ -615,7 +615,7 @@
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/batch"</span><span class="w">
+                </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/batch"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -897,15 +897,15 @@
 </tbody></table>
 <h2 id='create-a-vendor'>Create a Vendor</h2>
 <p>A new vendor can be created by calling the MultiVendorX vendors API and using the <code>POST</code> method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/wcmp/v1/vendors</h6>
+    <h6>/wp-json/mvx/v1/vendors</h6>
   </div>
 </div></p>
 
 <p>A vendor will be registered on your site and is ready to sell upon successful API call.</p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wcmp/v1/vendors <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/mvx/v1/vendors <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret <span class="se">\</span>
     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     <span class="nt">-d</span> <span class="s1">'{
@@ -1007,12 +1007,12 @@
     </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/19"</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/19"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1025,38 +1025,38 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>400</code> <code>wcmp_rest_dc_vendor_exists</code></td>
+<td><code>400</code> <code>mvx_rest_dc_vendor_exists</code></td>
 <td>A resource is already registerred with the <code>id</code> you&#39;ve provided</td>
 </tr>
 <tr>
-<td><code>400</code> <code>wcmp_rest_dc_vendor_login_empty</code></td>
+<td><code>400</code> <code>mvx_rest_dc_vendor_login_empty</code></td>
 <td>You&#39;ve missed filling out the username in the <code>login</code> field</td>
 </tr>
 <tr>
-<td><code>400</code> <code>wcmp_rest_dc_vendor_email_empty</code></td>
+<td><code>400</code> <code>mvx_rest_dc_vendor_email_empty</code></td>
 <td>You&#39;ve missed filling out the email in the <code>email</code> field</td>
 </tr>
 </tbody></table>
 
 <blockquote>
-<p>WCMp REST API 400 error example:</p>
+<p>MultiVendorX REST API 400 error example:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp_rest_dc_vendor_login_empty"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx_rest_dc_vendor_login_empty"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dc_vendor login required."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='get-all-vendors'>Get all Vendors</h2>
-<p>List all the vendors registered on your site by calling the WCMp vendors API and using the <code>GET</code> method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<p>List all the vendors registered on your site by calling the MultiVendorX vendors API and using the <code>GET</code> method.
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/vendors</h6>
+    <h6>/wp-json/mvx/v1/vendors</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/wcmp/v1/vendors <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/mvx/v1/vendors <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret
 </code></pre></div>
 <blockquote>
@@ -1149,12 +1149,12 @@
         </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/17"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/17"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1245,12 +1245,12 @@
         </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/19"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/19"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1258,13 +1258,13 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div><h2 id='retrieve-a-specific-vendor'>Retrieve a Specific Vendor</h2>
 <p>Get a specific vendor&#39;s details by calling the MultiVendorX vendors API and using the <code>GET</code> method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/wcmp/v1/vendors/19 <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/mvx/v1/vendors/19 <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret
 </code></pre></div>
 <blockquote>
@@ -1357,12 +1357,12 @@
         </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/19"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/19"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                    </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1376,19 +1376,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>400</code> <code>wcmp_rest_is_not_a_dc_vendor</code></td>
+<td><code>400</code> <code>mvx_rest_is_not_a_dc_vendor</code></td>
 <td>A resource <code>id</code> entered does not match with the registered vendors</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-vendor'>Update a Vendor</h2>
 <p>Alter and save vendor&#39;s details by calling the MultiVendorX vendors API and using the <code>PUT</code> method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">PUT</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://example.com/wp-json/wcmp/v1/vendors/19 <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> PUT https://example.com/wp-json/mvx/v1/vendors/19 <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret <span class="se">\</span>
     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     <span class="nt">-d</span> <span class="s1">'{
@@ -1494,12 +1494,12 @@
     </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors/19"</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors/19"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/wcmp/v1/vendors"</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/wp-json/mvx/v1/vendors"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1512,23 +1512,23 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>400</code> <code>wcmp_rest_dc_vendor_insufficient_param</code></td>
+<td><code>400</code> <code>mvx_rest_dc_vendor_insufficient_param</code></td>
 <td>A resource <code>id</code> is invalid or have not been entered</td>
 </tr>
 <tr>
-<td><code>400</code> <code>wcmp_rest_is_not_a_dc_vendor</code></td>
+<td><code>400</code> <code>mvx_rest_is_not_a_dc_vendor</code></td>
 <td>A resource <code>id</code> entered does not match with the registered vendors</td>
 </tr>
 </tbody></table>
 <h2 id='delete-a-vendor'>Delete a Vendor</h2>
 <p>Remove a vendor by calling the MultiVendorX vendors API and using the <code>DELETE</code> method.
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">DELETE</i>
-    <h6>/wp-json/wcmp/v1/vendors/[id]</h6>
+    <h6>/wp-json/mvx/v1/vendors/[id]</h6>
   </div>
 </div></p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://example.com/wp-json/wcmp/v1/vendors/19 <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://example.com/wp-json/mvx/v1/vendors/19 <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret<span class="s1">'
 </span></code></pre></div>
 <blockquote>
@@ -1629,24 +1629,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>400</code> <code>wcmp_rest_dc_vendor_insufficient_param</code></td>
+<td><code>400</code> <code>mvx_rest_dc_vendor_insufficient_param</code></td>
 <td>A resource <code>id</code> is invalid or have not been entered</td>
 </tr>
 <tr>
-<td><code>400</code> <code>wcmp_rest_is_not_a_dc_vendor</code></td>
+<td><code>400</code> <code>mvx_rest_is_not_a_dc_vendor</code></td>
 <td>A resource <code>id</code> entered does not match with the registered vendors</td>
 </tr>
 </tbody></table>
 <h2 id='batch-update-vendors'>Batch update Vendors</h2>
 <p>Using this API with <code>POST</code> helps you to batch create, update and delete multiple vendors.</p>
 
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">POST</i>
-    <h6>/wp-json/wcmp/v1/vendors/batch</h6>
+    <h6>/wp-json/mvx/v1/vendors/batch</h6>
   </div>
 </div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wcmp/v21/vendors/batch <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/mvx/v21/vendors/batch <span class="se">\</span>
     <span class="nt">-u</span> consumer_key:consumer_secret <span class="se">\</span>
     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
     <span class="nt">-d</span> <span class="s1">'{
@@ -1779,12 +1779,12 @@
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors/20"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors/20"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
                 </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -1875,12 +1875,12 @@
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors/21"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors/21"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
                 </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -1973,12 +1973,12 @@
             </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors/16"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors/16"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">],</span><span class="w">
                 </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/wcmp/v1/vendors"</span><span class="w">
+                        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost/v3/wp-json/mvx/v1/vendors"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -2207,7 +2207,7 @@
         </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11366</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_child_product"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_child_product"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -2324,7 +2324,7 @@
         </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11332</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_child_product"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_child_product"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -2524,17 +2524,17 @@
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11401</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_cancallation_policy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_cancallation_policy"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11402</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_refund_policy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_refund_policy"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11403</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_shipping_policy"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_shipping_policy"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
@@ -2650,7 +2650,7 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
         </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11251</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_order_processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_order_processed"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -2822,7 +2822,7 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
         </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10938</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_wcmp_order_processed"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_mvx_order_processed"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -3022,7 +3022,7 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">489</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wcmp coupon"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvx coupon"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-28T06:18:49"</span><span class="p">,</span><span class="w">
@@ -3177,7 +3177,7 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
 </span></code></pre></div><h1 id='vendor-review'>Vendor Review</h1>
 <p>MultiVendorX Orders This API request help you retrieve all the vendor&#39;s review</p>
 <h2 id='get-all-reviews-from-a-vendor'>Get all reviews from a vendor</h2>
-<p>list of all the vendors reviews created on your site by calling the WCMp vendors API and using the GET method.</p>
+<p>list of all the vendors reviews created on your site by calling the MultiVendorX vendors API and using the GET method.</p>
 <h3 id='accepted-parameters'>Accepted Parameters</h3>
 <table><thead>
 <tr>
@@ -3207,8 +3207,8 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -3556,8 +3556,8 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
 </span></code></pre></div><h2 id='get-single-review-of-a-vendor'>Get single review of a vendor</h2>
 <p>List of a single vendors reviews created on your site by calling the MultiVendorX vendors API and using the GET method.</p>
 <h3 id='http-request-2'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/[order_id]?vendor=[vendor_id]</h6>
   </div>
@@ -3601,8 +3601,8 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
 </tr>
 </tbody></table>
 <h3 id='http-request-3'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
@@ -3978,8 +3978,8 @@ MultiVendorX Orders API allows you to list all the orders of a vendor <a target=
 </tr>
 </tbody></table>
 <h3 id='http-request-4'>HTTP request</h3>
-<div class="wcmp-api-endpoint">
-  <div class="wcmp-endpoint-data">
+<div class="mvx-api-endpoint">
+  <div class="mvx-endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/wc/v2/orders/?vendor=[vendor_id]</h6>
   </div>
