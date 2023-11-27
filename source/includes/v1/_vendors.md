@@ -64,14 +64,14 @@ MultiVendorX vendors API allows you to create, view, update, and delete individu
 | -----------------------	| ---------------------------------------------------------------------------------------------------------- 		|
 | `payment_mode`       		| Mode of vendor's payment : Direct Bank Transfer (`direct_bank`) or PayPal (`paypal_payout` or `paypal_masspay` ). |
 | `bank_account_type`  		| If payment is `direct_bank`: then vendor's sccount type: `current` or `savings`.									|
-| `bank_name`   	   		| Vendor's Bank Name.                  															|
-| `bank_account_number`		| Vendor's Bank Account Number.  																				|
-| `bank_address`  	   		| Vendor's Bank Address.                  																|
-| `account_holder_name`		| Vendor's Bank Account Holder Name.                  																|
-| `aba_routing_number` 		| Vendor's Bank ABA Rounting Number.                  																|
-| `destination_currency`  	| Vendor's Destination Currency.                  																|
-| `iban`  		   			| Vendor's Iban.                  																|
-| `paypal_email`  		   	| Vendor's Paypal Email.                  																|
+| `bank_name`   	   		| Vendor's Google Plus Profile Address.                  															|
+| `bank_account_number`		| Vendor's LinkedIn Profile Address.  																				|
+| `bank_address`  	   		| Vendor's YouTube Profile Address.                  																|
+| `account_holder_name`		| Vendor's Instagram Profile Address.                  																|
+| `aba_routing_number` 		| Vendor's Instagram Profile Address.                  																|
+| `destination_currency`  	| Vendor's Instagram Profile Address.                  																|
+| `iban`  		   			| Vendor's Instagram Profile Address.                  																|
+| `paypal_email`  		   	| Vendor's Instagram Profile Address.                  																|
 
 
 ## Create a Vendor ##
